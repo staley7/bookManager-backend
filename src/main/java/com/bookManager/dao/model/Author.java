@@ -4,6 +4,11 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Set;
 
+/**
+ * Representation of an Author model. Writer of a Book.
+ * @author Lance Staley
+ *
+ */
 public class Author implements Serializable {
 
 	private static final long serialVersionUID = -5527429785130615995L;
@@ -27,6 +32,7 @@ public class Author implements Serializable {
 	private Set<Book> books;
 	
 	private Set<Collection> collections;
+	private Set<Series> series;
 
 	public Author() {
 	}
@@ -109,6 +115,14 @@ public class Author implements Serializable {
 
 	public void setCollections(Set<Collection> collections) {
 		this.collections = collections;
+	}
+
+	public Set<Series> getSeries() {
+		return series;
+	}
+
+	public void setSeries(Set<Series> series) {
+		this.series = series;
 	}
 
 	@Override

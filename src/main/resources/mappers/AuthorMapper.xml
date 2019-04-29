@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+  'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+  
+ <mapper namespace="com.bookManager.dao.mapper">
+ 
+ 	<resultMap id="AuthorResult" type="Author">
+ 		<id property="authorId" column="author_id" />
+ 		<result property="firstName" column="first_name" />
+ 		<result property="lastName" column="last_name" />
+ 		<result property="rating" column="rating" javaType="Double"  />
+ 		<result property="createDate" column="create_date" javaType="LocalDateTime" />
+ 		<result property="updateDate" column="update_date" javaType="LocalDateTime" />
+ 		<result property="createdBy" column="created_by"  />
+ 		<result property="lastUpdatedBy" column="updated_by" />
+ 		<result property="createdBy" column="created_by" />
+ 	</resultMap>
+ 
+ 
+	<select id="findAuthorById" resultMap="AuthorResult">
+		SELECT * from AUTHORS WEHRE author_id = #{authorId}
+	</select>
+	
+	<select id="findAllAuthors" resultType="java.util.Set" resultMap="AuthorResult">
+		SELECT author_id, first_name, last_name, rating from AUTHORS
+	</select>
+ 
+ 	<insert id="insertAuthor" parameterType="Author" keyProperty="authorId" keyColumn="author_id">
+ 	
+ 	</insert>
+ 
+ </mapper>

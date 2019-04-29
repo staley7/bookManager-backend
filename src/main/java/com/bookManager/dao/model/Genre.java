@@ -3,6 +3,11 @@ package com.bookManager.dao.model;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+/**
+ * Representation of a genre. A description of the type of book. Ex. Sci_fiction, non-fiction.
+ * @author Lance Staley
+ *
+ */
 public class Genre implements Serializable{
 
 	private static final long serialVersionUID = 4640999152501558847L;
