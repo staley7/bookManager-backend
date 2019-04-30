@@ -12,24 +12,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.data.domain.Pageable;
-import com.bookManager.dao.model.Author;
-import com.bookManager.service.AuthorService;
+import com.bookManager.dao.model.Book;
+import com.bookManager.service.BookService;
 
 @RestController()
 @RequestMapping("/api")
 public class BookController {
 
 	@Autowired
-	private AuthorService authorService;
+	private BookService authorService;
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(BookController.class);
 	
 	//TODO
 	@CrossOrigin
-	@RequestMapping(value =  "/authors", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-	public Set<Author> getAuthors(@RequestParam(required = false) Integer pageNumber, @RequestParam(required = false) Integer pageSize) {
-		return authorService.getAuthors(pageNumber, pageSize);
+	@RequestMapping(value =  "/books", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+	public Set<Book> getBooks(@RequestParam(required = false) Integer pageNumber, @RequestParam(required = false) Integer pageSize) {
+		return authorService.getBooks(pageNumber, pageSize);
 	}
 	
 }

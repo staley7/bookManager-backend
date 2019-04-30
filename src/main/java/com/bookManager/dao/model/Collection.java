@@ -4,12 +4,15 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Set;
 
+import org.apache.ibatis.type.Alias;
+
 /**
  * A collection of books set in the same world. Ex. Forgotten Realms.
  * 
  * @author Lance Staley
  *
  */
+@Alias(value = "bmCollection") // overridding auto alias to avoid conflict with reserved name for java.util.Collection
 public class Collection implements Serializable {
 
 	private static final long serialVersionUID = 146514734209612822L;

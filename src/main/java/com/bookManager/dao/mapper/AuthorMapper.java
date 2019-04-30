@@ -2,6 +2,8 @@ package com.bookManager.dao.mapper;
 
 import java.util.Set;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import com.bookManager.dao.model.Author;
 
 /**
@@ -9,6 +11,7 @@ import com.bookManager.dao.model.Author;
  * @author Lance Staley
  *
  */
+@Mapper
 public interface AuthorMapper {
 
 	
