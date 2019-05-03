@@ -1,7 +1,7 @@
 USE book_manager;
 CREATE TABLE series (
-                series_id NUMERIC NOT NULL,
-                author_id NUMERIC NOT NULL,
+                series_id INT NOT NULL AUTO_INCREMENT,
+                author_id INT NOT NULL,
                 name VARCHAR(250) NOT NULL,
                 description TEXT,
                 rating DOUBLE PRECISION,

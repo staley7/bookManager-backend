@@ -1,8 +1,8 @@
 USE book_manager;
 CREATE TABLE book_genres (
-                book_genres_id NUMERIC NOT NULL,
-                genre_id NUMERIC NOT NULL,
-                book_id NUMERIC NOT NULL,
+                book_genres_id INT NOT NULL AUTO_INCREMENT,
+                genre_id INT NOT NULL,
+                book_id INT NOT NULL,
                 created_by VARCHAR(100),
                 create_date DATE,
                 updated_by VARCHAR(100),

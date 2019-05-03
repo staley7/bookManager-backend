@@ -1,6 +1,6 @@
 use book_manager;
 CREATE TABLE authors (
-                author_id NUMERIC NOT NULL,
+                author_id INT NOT NULL AUTO_INCREMENT,
                 first_name VARCHAR(100) NOT NULL,
                 last_name VARCHAR(100) NOT NULL,
                 rating DOUBLE PRECISION,

@@ -2,7 +2,7 @@ package com.bookManager.service;
 
 import java.util.Set;
 
-import com.bookManager.dao.model.Author;
+import com.bookManager.dto.AuthorDto;
 
 /**
  * Interface defining all Author related service level interactions.
@@ -17,21 +17,35 @@ public interface AuthorService {
 	 * @param pageSize
 	 * @return Set<Author>
 	 */
-	Set<Author> getAuthors(Integer page, Integer pageSize);
+	Set<AuthorDto> getAuthors(Integer page, Integer pageSize);
 	
 	/**
 	 * Returns the Author with the given id.
 	 * @param authorId
 	 * @return Author
 	 */
-	Author getAuthor(Long authorId);
+	AuthorDto getAuthor(Long authorId);
 	
 	/**
 	 * Updates the given Author
 	 * @param author
 	 * @return boolean
 	 */
-	boolean updateAuthor(Author author);
+	AuthorDto updateAuthor(AuthorDto author);
+	
+	/**
+	 * Creates a new Author.
+	 * @param author
+	 * @return AuthorDto
+	 */
+	AuthorDto createAuthor(AuthorDto author);
+	
+	/**
+	 * Updates and existing author and creates a new Author.
+	 * @param author
+	 * @return AuthorDto
+	 */
+	AuthorDto saveAuthor(AuthorDto author);
 	
 	/**
 	 * Deletes the Author with the given id.

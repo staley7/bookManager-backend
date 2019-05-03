@@ -1,9 +1,9 @@
 USE book_manager;
 CREATE TABLE books (
-                book_id NUMERIC NOT NULL,
-                series_id NUMERIC,
-                collection_id NUMERIC,
-                author_id NUMERIC NOT NULL,
+                book_id INT NOT NULL AUTO_INCREMENT,
+                series_id INT,
+                collection_id INT,
+                author_id INT NOT NULL,
                 title VARCHAR(500),
                 description TEXT,
                 rating DOUBLE PRECISION,

@@ -25,13 +25,13 @@
 	</select>
  
  	<insert id="insertAuthor" parameterType="Author" keyProperty="authorId" keyColumn="author_id">
- 		INSERT INTO AUTHORS(author_id, first_name, last_name, rating, create_date, update_date, created_by, updated_by)
- 		VALUES(#{author_id}, #{firstName}, #{lastName}, #{rating}, #{createDate}, #{updateDate}, #{createdBy}, #{lastUpdatedBy})
+ 		INSERT INTO AUTHORS(first_name, last_name, rating, create_date, update_date, created_by, updated_by)
+ 		VALUES(#{firstName}, #{lastName}, #{rating}, #{createDate}, #{updateDate}, #{createdBy}, #{lastUpdatedBy})
  	</insert>
  
  	<update id="updateAuthor">
  		UPDATE AUTHORS SET
- 		first_name = #{firstName}, last_name = #{lastName}, rating = #{rating}, update_date = #{update_date}, updated_by = #{lastUpdatedBy}  
+ 		first_name = #{firstName}, last_name = #{lastName}, rating = #{rating}, update_date = #{updateDate}, updated_by = #{lastUpdatedBy}  
  	</update>
 
 	<delete id="deleteAuthor" parameterType="Long">

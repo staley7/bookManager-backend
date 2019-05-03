@@ -1,6 +1,6 @@
 USE book_manager;
 CREATE TABLE collection (
-                collection_id NUMERIC NOT NULL,
+                collection_id INT NOT NULL AUTO_INCREMENT,
                 name VARCHAR(250) NOT NULL,
                 description TEXT,
                 rating DOUBLE PRECISION,
