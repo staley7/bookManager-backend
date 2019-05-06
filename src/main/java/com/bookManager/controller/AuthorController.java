@@ -8,7 +8,9 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,7 +36,7 @@ public class AuthorController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(AuthorController.class);
 
 	@CrossOrigin
-	@RequestMapping(value = "/authors", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+	@GetMapping(value = "/authors", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public Resources<AuthorDto> getAuthors(@RequestParam(required = false) Integer pageNumber,
 			@RequestParam(required = false) Integer pageSize) {
 		Set<AuthorDto> authors = authorService.getAuthors(pageNumber, pageSize);
@@ -43,14 +45,14 @@ public class AuthorController {
 	}
 
 	@CrossOrigin
-	@RequestMapping(value = "/author", method = RequestMethod.PUT, produces = { MediaType.APPLICATION_JSON_VALUE })
+	@PutMapping(value = "/author", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public AuthorDto saveAuthor(@RequestBody AuthorDto author) {
 		LOGGER.info("save Author");
 		return authorAssembler.toResource(authorService.saveAuthor(author));
 	}
 
 	@CrossOrigin
-	@RequestMapping(value = "/author/{id}", method = RequestMethod.GET)
+	@GetMapping(value = "/author/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public AuthorDto getAuthor(@PathVariable Long id) {
 		return authorAssembler.toResource(authorService.getAuthor(id));
 	}
