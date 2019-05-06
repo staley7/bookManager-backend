@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+  'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+
+<mapper namespace="com.bookManager.dao.mapper.BookMapper">
+
+	<resultMap id="BookResult" type="Book">
+		<id property="bookId" column="book_id" />
+		<result property="authorId" column="author_id" />
+		<result property="title" column="title" />
+		<result property="seriesId" column="series_id" javaType="Long" />
+		<result property="collectionId" column="collection_id" javaType="Long" />
+		<result property="rating" column="rating" javaType="Double" />
+		<result property="createDate" column="create_date"
+			javaType="java.time.LocalDateTime" />
+		<result property="updateDate" column="update_date"
+			javaType="java.time.LocalDateTime" />
+		<result property="createdBy" column="created_by" />
+		<result property="lastUpdatedBy" column="updated_by" />
+	</resultMap>
+
+
+	<select id="findBookById" resultMap="BookResult">
+		SELECT * from BOOKS
+		WHERE book_id = #{bookId}
+	</select>
+
+	<select id="findAllBooks" resultType="java.util.Set"
+		resultMap="BookResult">
+		SELECT book_id, title, description, rating from BOOKS
+	</select>
+
+	<insert id="insertBook" parameterType="Book"
+		keyProperty="bookId" keyColumn="book_id">
+		INSERT INTO BOOKS(title, description, rating, author_id,  create_date, update_date,
+		created_by, updated_by)
+		VALUES(#{title}, #{description}, #{rating}, #{authorId}, #{createDate}, #{updateDate}, #{createdBy},
+		#{lastUpdatedBy})
+	</insert>
+
+	<update id="updateBook">
+		UPDATE BOOKS SET
+		title = #{title}, description = #{description}, rating = #{rating}, author_id = #{authorId}
+		update_date = #{updateDate}, updated_by = #{lastUpdatedBy}
+	</update>
+
+	<delete id="deleteAuthor" parameterType="Long">
+		DELETE FROM BOOKS
+		WHERE book_id = #{bookId}
+	</delete>
+
+</mapper>

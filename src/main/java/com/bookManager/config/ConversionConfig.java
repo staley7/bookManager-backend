@@ -7,6 +7,8 @@ import org.springframework.core.convert.support.DefaultConversionService;
 
 import com.bookManager.converter.AuthorDtoToAuthorConverter;
 import com.bookManager.converter.AuthorToAuthorDtoConverter;
+import com.bookManager.converter.BookDtoToBookConverter;
+import com.bookManager.converter.BookToBookDtoConverter;
 
 /**
  * The Conversion Config class for the conversionService.
@@ -26,6 +28,8 @@ public class ConversionConfig {
         DefaultConversionService converterService = new DefaultConversionService();
         converterService.addConverter(new AuthorToAuthorDtoConverter());
         converterService.addConverter(new AuthorDtoToAuthorConverter());
+        converterService.addConverter(new BookToBookDtoConverter());
+        converterService.addConverter(new BookDtoToBookConverter());
         return converterService;
     }
 

@@ -27,9 +27,13 @@ public class Book implements Serializable {
 	
 	private Author author;
 	
-	private LocalDateTime updatedDate;
+	private LocalDateTime updateDate;
 	
 	private LocalDateTime createDate;
+	
+	private String createdBy;
+	
+	private String lastUpdatedBy;
 	
 	private Series series;
 	private Collection collection;
@@ -108,13 +112,13 @@ public class Book implements Serializable {
 	}
 
 
-	public LocalDateTime getUpdatedDate() {
-		return updatedDate;
+	public LocalDateTime getUpdateDate() {
+		return updateDate;
 	}
 
 
-	public void setUpdatedDate(LocalDateTime updatedDate) {
-		this.updatedDate = updatedDate;
+	public void setUpdateDate(LocalDateTime updatedDate) {
+		this.updateDate = updatedDate;
 	}
 
 
@@ -125,6 +129,26 @@ public class Book implements Serializable {
 
 	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
+	}
+
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+
+	public String getLastUpdatedBy() {
+		return lastUpdatedBy;
+	}
+
+
+	public void setLastUpdatedBy(String lastUpdatedBy) {
+		this.lastUpdatedBy = lastUpdatedBy;
 	}
 
 
@@ -173,7 +197,8 @@ public class Book implements Serializable {
 			return false;
 		return true;
 	}
-	
+
+
 	
 	
 }
