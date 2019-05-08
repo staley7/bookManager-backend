@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+  'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+  
+ <mapper namespace="com.bookManager.dao.mapper.GenreMapper">
+ 
+ 	<resultMap id="GenreResult" type="Genre">
+ 		<id property="genreId" column="genre_id" />
+ 		<result property="name" column="name" />
+ 		<result property="description" column="description" />
+ 		<result property="createDate" column="create_date" javaType="java.time.LocalDateTime" />
+ 		<result property="updatedDate" column="update_date" javaType="java.time.LocalDateTime" />
+ 		<result property="createdBy" column="created_by"  />
+ 		<result property="updatedBy" column="updated_by" />
+ 	</resultMap>
+ 
+ 
+	<select id="findGenreById" resultMap="GenreResult">
+		SELECT * from GENRE WHERE genre_id = #{genreId}
+	</select>
+	
+	<select id="findAllGenre" resultType="java.util.Set" resultMap="GenreResult">
+		SELECT genre_id, name, description from GENRE
+	</select>
+ 
+ 	<insert id="insertGenre" parameterType="Genre" keyProperty="genreId" keyColumn="genre_id">
+ 		INSERT INTO GENRE(name, description, create_date, update_date, created_by, updated_by)
+ 		VALUES(#{name}, #{description}, #{createDate}, #{updatedDate}, #{createdBy}, #{updatedBy})
+ 	</insert>
+ 
+ 	<update id="updateGenre">
+ 		UPDATE GENRE SET
+ 		name = #{name}, description = #{description} update_date = #{updatedDate}, updated_by = #{updatedBy}  
+ 	</update>
+
+	<delete id="deleteGenre" parameterType="Long">
+		DELETE FROM GENRE WHERE genre_id = #{genreId}	
+	</delete>
+ 
+ </mapper>

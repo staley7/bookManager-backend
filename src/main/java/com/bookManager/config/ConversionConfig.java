@@ -11,6 +11,8 @@ import com.bookManager.converter.BookDtoToBookConverter;
 import com.bookManager.converter.BookToBookDtoConverter;
 import com.bookManager.converter.CollectionDtoToCollectionConverter;
 import com.bookManager.converter.CollectionToCollectionDtoConverter;
+import com.bookManager.converter.GenreDtoToGenreConverter;
+import com.bookManager.converter.GenreToGenreDtoConverter;
 import com.bookManager.converter.SeriesDtoToSeriesConverter;
 import com.bookManager.converter.SeriesToSeriesDtoConverter;
 
@@ -38,6 +40,8 @@ public class ConversionConfig {
         converterService.addConverter(new CollectionDtoToCollectionConverter());
         converterService.addConverter(new SeriesToSeriesDtoConverter());
         converterService.addConverter(new SeriesDtoToSeriesConverter());
+        converterService.addConverter(new GenreToGenreDtoConverter());
+        converterService.addConverter(new GenreDtoToGenreConverter());
         return converterService;
     }
 
