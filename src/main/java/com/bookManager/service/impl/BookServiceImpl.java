@@ -1,5 +1,6 @@
 package com.bookManager.service.impl;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -24,9 +25,12 @@ public class BookServiceImpl implements BookService {
 	private BookMapper bookMapper;
 
 	@Override
-	public BookDto updateBook(BookDto book) {
-		bookMapper.updateBook(converter.convert(book, Book.class));
-		return book;
+	public BookDto updateBook(BookDto dto) {
+		Book book = converter.convert(dto, Book.class);
+		book.setUpdateDate(LocalDateTime.now());
+		book.setLastUpdatedBy("SYSTEM"); //TODO
+		bookMapper.updateBook(book);
+		return dto;
 	}
 
 	@Override
@@ -52,9 +56,14 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public BookDto createBook(BookDto book) {
-		bookMapper.insertBook(converter.convert(book, Book.class));
-		return book;
+	public BookDto createBook(BookDto dto) {
+		Book book = converter.convert(dto, Book.class);
+		book.setCreateDate(LocalDateTime.now());
+		book.setCreatedBy("SYSTEM"); //TODO update to actual user.
+		book.setUpdateDate(book.getCreateDate());
+		book.setLastUpdatedBy(book.getCreatedBy());
+		bookMapper.insertBook(book);
+		return dto;
 	}
 	
 

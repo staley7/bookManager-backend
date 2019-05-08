@@ -8,7 +8,7 @@ import org.springframework.hateoas.core.Relation;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Relation(collectionRelation = "books")
-public class BookDto extends ResourceSupport {
+public class GenreDto extends ResourceSupport {
 
 	@JsonProperty("id")
 	private Long bookId;
@@ -126,7 +126,7 @@ public class BookDto extends ResourceSupport {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		BookDto other = (BookDto) obj;
+		GenreDto other = (GenreDto) obj;
 		if (bookId == null) {
 			if (other.bookId != null)
 				return false;

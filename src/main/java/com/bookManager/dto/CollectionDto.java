@@ -1,28 +1,33 @@
 package com.bookManager.dto;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import org.springframework.hateoas.ResourceSupport;
 import org.springframework.hateoas.core.Relation;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Relation(collectionRelation = "books")
-public class BookDto extends ResourceSupport {
+@Relation(collectionRelation = "collections")
+public class CollectionDto extends ResourceSupport {
 
 	@JsonProperty("id")
-	private Long bookId;
+	private Long collectionId;
+
+	private String name;
 
 	private String description;
 
-	private String title;
-
 	private Double rating;
 
-	private Long authorId;
-	
-	private AuthorDto author;
-	
+	private Set<AuthorDto> authors;
+
+	private Set<BookDto> books;
+
+	private Set<GenreDto> genres;
+
+	private Set<SeriesDto> series;
+
 	private String lastUpdatedBy;
 
 	private String createdBy;
@@ -31,12 +36,20 @@ public class BookDto extends ResourceSupport {
 
 	private LocalDateTime updatedDate;
 
-	public Long getBookId() {
-		return bookId;
+	public Long getCollectionId() {
+		return collectionId;
 	}
 
-	public void setBookId(Long bookId) {
-		this.bookId = bookId;
+	public void setCollectionId(Long collectionId) {
+		this.collectionId = collectionId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getDescription() {
@@ -47,14 +60,6 @@ public class BookDto extends ResourceSupport {
 		this.description = description;
 	}
 
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
 	public Double getRating() {
 		return rating;
 	}
@@ -63,13 +68,38 @@ public class BookDto extends ResourceSupport {
 		this.rating = rating;
 	}
 
-	public Long getAuthorId() {
-		return authorId;
+	public Set<AuthorDto> getAuthors() {
+		return authors;
 	}
 
-	public void setAuthorId(Long authorId) {
-		this.authorId = authorId;
+	public void setAuthors(Set<AuthorDto> authors) {
+		this.authors = authors;
 	}
+
+	public Set<BookDto> getBooks() {
+		return books;
+	}
+
+	public void setBooks(Set<BookDto> books) {
+		this.books = books;
+	}
+
+	public Set<GenreDto> getGenres() {
+		return genres;
+	}
+
+	public void setGenres(Set<GenreDto> genres) {
+		this.genres = genres;
+	}
+
+	public Set<SeriesDto> getSeries() {
+		return series;
+	}
+
+	public void setSeries(Set<SeriesDto> series) {
+		this.series = series;
+	}
+
 	public String getLastUpdatedBy() {
 		return lastUpdatedBy;
 	}
@@ -102,19 +132,11 @@ public class BookDto extends ResourceSupport {
 		this.updatedDate = updatedDate;
 	}
 
-	public AuthorDto getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(AuthorDto author) {
-		this.author = author;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((bookId == null) ? 0 : bookId.hashCode());
+		result = prime * result + ((collectionId == null) ? 0 : collectionId.hashCode());
 		return result;
 	}
 
@@ -126,15 +148,13 @@ public class BookDto extends ResourceSupport {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		BookDto other = (BookDto) obj;
-		if (bookId == null) {
-			if (other.bookId != null)
+		CollectionDto other = (CollectionDto) obj;
+		if (collectionId == null) {
+			if (other.collectionId != null)
 				return false;
-		} else if (!bookId.equals(other.bookId))
+		} else if (!collectionId.equals(other.collectionId))
 			return false;
 		return true;
 	}
 
-	
-	
 }

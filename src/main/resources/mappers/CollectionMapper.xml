@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+  'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+  
+ <mapper namespace="com.bookManager.dao.mapper.CollectionMapper">
+ 
+ 	<resultMap id="CollectionResult" type="bmCollection">
+ 		<id property="collectionId" column="collection_id" />
+ 		<result property="name" column="name" />
+ 		<result property="description" column="description" />
+ 		<result property="rating" column="rating" javaType="Double"  />
+ 		<result property="createDate" column="create_date" javaType="java.time.LocalDateTime" />
+ 		<result property="updateDate" column="update_date" javaType="java.time.LocalDateTime" />
+ 		<result property="createdBy" column="created_by"  />
+ 		<result property="lastUpdatedBy" column="updated_by" />
+ 	</resultMap>
+ 
+ 
+	<select id="findCollectionById" resultMap="CollectionResult">
+		SELECT * from COLLECTION WHERE collection_id = #{collectionId}
+	</select>
+	
+	<select id="findAllCollections" resultType="java.util.Set" resultMap="CollectionResult">
+		SELECT collection_id, name, description, rating from COLLECTION
+	</select>
+ 
+ 	<insert id="insertCollection" parameterType="Collection" keyProperty="collectionId" keyColumn="collection_id">
+ 		INSERT INTO COLLECTION(name, description, rating, create_date, update_date, created_by, updated_by)
+ 		VALUES(#{name}, #{description}, #{rating}, #{createDate}, #{updateDate}, #{createdBy}, #{updatedBy})
+ 	</insert>
+ 
+ 	<update id="updateCollection">
+ 		UPDATE COLLECTION SET
+ 		name = #{name}, description = #{description}, rating = #{rating}, update_date = #{updateDate}, updated_by = #{updatedBy}  
+ 	</update>
+
+	<delete id="deleteCollection" parameterType="Long">
+		DELETE FROM COLLECTION WHERE collection_id = #{collectionId}	
+	</delete>
+ 
+ </mapper>

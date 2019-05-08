@@ -15,7 +15,11 @@ public class BookDtoToBookConverter implements Converter<BookDto, Book> {
 	@Override
 	public Book convert(BookDto dto) {
 		Book book = new Book();
-		book.setAuthorId(dto.getAuthorId());
+		if(dto.getAuthorId() == null && dto.getAuthor() != null) {
+			book.setAuthorId(dto.getAuthor().getAuthorId());
+		}else {
+			book.setAuthorId(dto.getAuthorId());
+		}
 		book.setBookId(dto.getBookId());
 		book.setTitle(dto.getTitle());
 		book.setDescription(dto.getDescription());

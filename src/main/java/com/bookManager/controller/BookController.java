@@ -28,6 +28,7 @@ public class BookController {
 	@Autowired
 	private BookService bookService;
 	
+	@Autowired
 	private BookResourceAssembler bookAssembler;
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(BookController.class);
@@ -39,7 +40,7 @@ public class BookController {
 		Set<BookDto> books = bookService.getBooks(pageNumber, pageSize);
 		return new Resources<>(bookAssembler.toResources(books), ControllerLinkBuilder.linkTo(ControllerLinkBuilder.methodOn(BookController.class).getBooks(pageNumber, pageSize)
 				).withSelfRel());
-	}
+	} //TODO handle empty sets
 	
 	@CrossOrigin
 	@GetMapping(value = "/book/{id}", produces = { MediaType.APPLICATION_JSON_VALUE } )
