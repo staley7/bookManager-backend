@@ -28,9 +28,11 @@ public class Series implements Serializable {
 
 	private LocalDateTime createDate;
 
-	private LocalDateTime updatedDate;
+	private LocalDateTime updateDate;
 
 	private String updatedBy;
+	
+	private String createdBy;
 
 	private Set<Book> books;
 
@@ -87,12 +89,12 @@ public class Series implements Serializable {
 		this.createDate = createDate;
 	}
 
-	public LocalDateTime getUpdatedDate() {
-		return updatedDate;
+	public LocalDateTime getUpdateDate() {
+		return updateDate;
 	}
 
-	public void setUpdatedDate(LocalDateTime updatedDate) {
-		this.updatedDate = updatedDate;
+	public void setUpdateDate(LocalDateTime updatedDate) {
+		this.updateDate = updatedDate;
 	}
 
 	public String getUpdatedBy() {
@@ -125,6 +127,14 @@ public class Series implements Serializable {
 
 	public void setRating(Double rating) {
 		this.rating = rating;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
 	}
 
 	@Override

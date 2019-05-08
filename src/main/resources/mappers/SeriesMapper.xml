@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+  'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+  
+ <mapper namespace="com.bookManager.dao.mapper.SeriesMapper">
+ 
+ 	<resultMap id="SeriesResult" type="Series">
+ 		<id property="seriesId" column="series_id" />
+ 		<result property="name" column="name" />
+ 		<result property="description" column="description" />
+ 		<result property="rating" column="rating" javaType="Double"  />
+ 		<result property="authorId" column="author_id" />
+ 		<result property="createDate" column="create_date" javaType="java.time.LocalDateTime" />
+ 		<result property="updateDate" column="update_date" javaType="java.time.LocalDateTime" />
+ 		<result property="createdBy" column="created_by"  />
+ 		<result property="updatedBy" column="updated_by" />
+ 	</resultMap>
+ 
+ 
+	<select id="findSeriesById" resultMap="SeriesResult">
+		SELECT * from SERIES WHERE series_id = #{seriesId}
+	</select>
+	
+	<select id="findAllSeries" resultType="java.util.Set" resultMap="SeriesResult">
+		SELECT series_id, name, description, rating from SERIES
+	</select>
+ 
+ 	<insert id="insertSeries" parameterType="Series" keyProperty="seriesId" keyColumn="series_id">
+ 		INSERT INTO SERIES(name, description, rating, author_id, create_date, update_date, created_by, updated_by)
+ 		VALUES(#{name}, #{description}, #{rating}, #{authorId}, #{createDate}, #{updateDate}, #{createdBy}, #{updatedBy})
+ 	</insert>
+ 
+ 	<update id="updateSeries">
+ 		UPDATE SERIES SET
+ 		name = #{name}, description = #{description}, rating = #{rating}, author_id = #{authorId}, update_date = #{updateDate}, updated_by = #{updatedBy}  
+ 	</update>
+
+	<delete id="deleteSeries" parameterType="Long">
+		DELETE FROM SERIES WHERE series_id = #{seriesId}	
+	</delete>
+ 
+ </mapper>

@@ -11,6 +11,8 @@ import com.bookManager.converter.BookDtoToBookConverter;
 import com.bookManager.converter.BookToBookDtoConverter;
 import com.bookManager.converter.CollectionDtoToCollectionConverter;
 import com.bookManager.converter.CollectionToCollectionDtoConverter;
+import com.bookManager.converter.SeriesDtoToSeriesConverter;
+import com.bookManager.converter.SeriesToSeriesDtoConverter;
 
 /**
  * The Conversion Config class for the conversionService.
@@ -34,6 +36,8 @@ public class ConversionConfig {
         converterService.addConverter(new BookDtoToBookConverter());
         converterService.addConverter(new CollectionToCollectionDtoConverter());
         converterService.addConverter(new CollectionDtoToCollectionConverter());
+        converterService.addConverter(new SeriesToSeriesDtoConverter());
+        converterService.addConverter(new SeriesDtoToSeriesConverter());
         return converterService;
     }
 

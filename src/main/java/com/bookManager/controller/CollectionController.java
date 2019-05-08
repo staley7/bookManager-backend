@@ -36,10 +36,10 @@ public class CollectionController {
 
 	@CrossOrigin
 	@GetMapping(value = "/collections", produces = { MediaType.APPLICATION_JSON_VALUE })
-	public Resources<CollectionDto> getAuthors(@RequestParam(required = false) Integer pageNumber,
+	public Resources<CollectionDto> getCollections(@RequestParam(required = false) Integer pageNumber,
 			@RequestParam(required = false) Integer pageSize) {
 		Set<CollectionDto> collections = collectionService.getCollections(pageNumber, pageSize);
-		return new Resources<>(collectionAssembler.toResources(collections), ControllerLinkBuilder.linkTo(ControllerLinkBuilder.methodOn(CollectionController.class).getAuthors(pageNumber, pageSize)
+		return new Resources<>(collectionAssembler.toResources(collections), ControllerLinkBuilder.linkTo(ControllerLinkBuilder.methodOn(CollectionController.class).getCollections(pageNumber, pageSize)
 				).withSelfRel());
 	}
 
