@@ -19,7 +19,7 @@
 		SELECT * from GENRE WHERE genre_id = #{genreId}
 	</select>
 	
-	<select id="findAllGenre" resultType="java.util.Set" resultMap="GenreResult">
+	<select id="findAllGenres" resultType="java.util.Set" resultMap="GenreResult">
 		SELECT genre_id, name, description from GENRE
 	</select>
  
