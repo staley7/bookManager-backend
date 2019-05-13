@@ -12,7 +12,7 @@
  		<result property="createDate" column="create_date" javaType="java.time.LocalDateTime" />
  		<result property="updateDate" column="update_date" javaType="java.time.LocalDateTime" />
  		<result property="createdBy" column="created_by"  />
- 		<result property="lastUpdatedBy" column="updated_by" />
+ 		<result property="updatedBy" column="updated_by" />
  	</resultMap>
  
  

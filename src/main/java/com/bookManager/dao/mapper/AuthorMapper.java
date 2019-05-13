@@ -35,6 +35,20 @@ public interface AuthorMapper {
 	 public Set<Author> findAllAuthors();
 	 
 	 /**
+	  * Returns the the given group of authors in a Set.
+	  * @param limit
+	  * @param offSet
+	  * @return Set<Author>
+	  */
+	 public Set<Author> findPagedAuthors(Integer limit, Integer offSet);
+	
+	 /**
+	  * Finds the total number of Author records.
+	  * @return int
+	  */
+	 public int findAuthorCount();
+	 
+	 /**
 	  * Updates the given Author
 	  * @param author
 	  */

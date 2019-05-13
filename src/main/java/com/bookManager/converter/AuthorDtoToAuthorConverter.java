@@ -18,6 +18,7 @@ public class AuthorDtoToAuthorConverter implements Converter<AuthorDto, Author> 
 		author.setAuthorId(dto.getAuthorId());
 		author.setFirstName(dto.getFirstName());
 		author.setLastName(dto.getLastName());
+		author.setRating(dto.getRating());
 		author.setCreateDate(dto.getCreateDate());
 		author.setCreatedBy(dto.getCreatedBy());
 		author.setUpdateDate(dto.getUpdatedDate());

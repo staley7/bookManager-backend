@@ -24,6 +24,14 @@
 		SELECT author_id, first_name, last_name, rating from AUTHORS
 	</select>
  
+ 	<select id="findPagedAuthors" resultType="java.util.Set" resultMap="AuthorResult">
+ 		SELECT author_id, first_name, last_name, rating from AUTHORS LIMIT #{offSet}, #{limit}
+ 	</select>
+ 
+ 	<select id="findAuthorCount" resultType="int">
+	 	SELECT count(author_id) FROM AUTHORS
+ 	</select>
+ 
  	<insert id="insertAuthor" parameterType="Author" keyProperty="authorId" keyColumn="author_id">
  		INSERT INTO AUTHORS(first_name, last_name, rating, create_date, update_date, created_by, updated_by)
  		VALUES(#{firstName}, #{lastName}, #{rating}, #{createDate}, #{updateDate}, #{createdBy}, #{lastUpdatedBy})
@@ -31,7 +39,8 @@
  
  	<update id="updateAuthor">
  		UPDATE AUTHORS SET
- 		first_name = #{firstName}, last_name = #{lastName}, rating = #{rating}, update_date = #{updateDate}, updated_by = #{lastUpdatedBy}  
+ 		first_name = #{firstName}, last_name = #{lastName}, rating = #{rating}, update_date = #{updateDate}, updated_by = #{lastUpdatedBy} 
+ 		WHERE author_id = #{author_id}  
  	</update>
 
 	<delete id="deleteAuthor" parameterType="Long">
