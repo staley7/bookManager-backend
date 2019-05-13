@@ -40,7 +40,7 @@
  	<update id="updateAuthor">
  		UPDATE AUTHORS SET
  		first_name = #{firstName}, last_name = #{lastName}, rating = #{rating}, update_date = #{updateDate}, updated_by = #{lastUpdatedBy} 
- 		WHERE author_id = #{author_id}  
+ 		WHERE author_id = #{authorId}  
  	</update>
 
 	<delete id="deleteAuthor" parameterType="Long">
