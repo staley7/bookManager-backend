@@ -25,9 +25,12 @@ public class AuthorServiceImpl implements AuthorService {
 	private AuthorMapper authorMapper;
 
 	@Override
-	public Set<AuthorDto> getAuthors(Integer page, Integer pageSize) {
-		Integer offSet = this.authorMapper.findAuthorCount()/pageSize;
-		return this.authorMapper.findPagedAuthors(pageSize, offSet).stream().map(author -> converter.convert(author, AuthorDto.class)).collect(Collectors.toSet());
+	public Set<AuthorDto> getAuthors(Integer page, Integer pageSize, String sortOrder, String sortField) {
+		Integer offSet = null;
+		if(pageSize != null && page != null) {
+		 offSet = pageSize*page;
+		}
+		return this.authorMapper.findPagedAuthors(pageSize, offSet,sortOrder, sortField).stream().map(author -> converter.convert(author, AuthorDto.class)).collect(Collectors.toSet());
 	}
 
 	@Override

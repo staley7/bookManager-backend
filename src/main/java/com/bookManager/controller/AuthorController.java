@@ -37,9 +37,9 @@ public class AuthorController {
 	@CrossOrigin
 	@GetMapping(value = "/authors", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public Resources<AuthorDto> getAuthors(@RequestParam(required = false) Integer pageNumber,
-			@RequestParam(required = false) Integer pageSize) {
-		Set<AuthorDto> authors = authorService.getAuthors(pageNumber, pageSize);
-		return new Resources<>(authorAssembler.toResources(authors), ControllerLinkBuilder.linkTo(ControllerLinkBuilder.methodOn(AuthorController.class).getAuthors(pageNumber, pageSize)
+			@RequestParam(required = false) Integer pageSize, @RequestParam(required = false) String sortOrder, @RequestParam(required = false) String sortField) {
+		Set<AuthorDto> authors = authorService.getAuthors(pageNumber, pageSize, sortOrder, sortField);
+		return new Resources<>(authorAssembler.toResources(authors), ControllerLinkBuilder.linkTo(ControllerLinkBuilder.methodOn(AuthorController.class).getAuthors(pageNumber, pageSize, sortOrder, sortField)
 				).withSelfRel());
 	}
 

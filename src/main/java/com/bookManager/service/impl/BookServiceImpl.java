@@ -51,8 +51,12 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public Set<BookDto> getBooks(Integer page, Integer pageSize) {
-		return this.bookMapper.findAllBooks().stream().map(book -> converter.convert(book, BookDto.class)).collect(Collectors.toSet());
+	public Set<BookDto> getBooks(Integer page, Integer pageSize, String sortOrder, String sortField) {
+		Integer offSet = null;
+		if(pageSize != null && page != null) {
+		 offSet = pageSize*page;
+		}
+		return this.bookMapper.findBooks(pageSize, offSet, sortOrder, sortField).stream().map(book -> converter.convert(book, BookDto.class)).collect(Collectors.toSet());
 	}
 
 	@Override

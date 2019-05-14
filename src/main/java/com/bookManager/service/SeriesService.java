@@ -15,9 +15,11 @@ public interface SeriesService {
 	 * Returns the given page of series, based on a pageSize
 	 * @param page
 	 * @param pageSize
+	 * @param sortOrder
+	 * @param sortField
 	 * @return Set<SeriesDto>
 	 */
-	Set<SeriesDto> getSeries(Integer page, Integer pageSize);
+	Set<SeriesDto> getSeries(Integer page, Integer pageSize, String sortOrder, String sortField);
 	
 	/**
 	 * Updates the given Series

@@ -40,7 +40,7 @@ public interface AuthorMapper {
 	  * @param offSet
 	  * @return Set<Author>
 	  */
-	 public Set<Author> findPagedAuthors(Integer limit, Integer offSet);
+	 public Set<Author> findPagedAuthors(Integer limit, Integer offSet, String sortOrder, String sortField);
 	
 	 /**
 	  * Finds the total number of Author records.

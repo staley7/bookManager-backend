@@ -25,8 +25,12 @@ public class SeriesServiceImpl implements SeriesService {
 	private SeriesMapper seriesMapper;
 
 	@Override
-	public Set<SeriesDto> getSeries(Integer page, Integer pageSize) {
-		return seriesMapper.findAllSeries().stream()
+	public Set<SeriesDto> getSeries(Integer page, Integer pageSize, String sortOrder, String sortField) {
+		Integer offSet = null;
+		if(pageSize != null && page != null) {
+		 offSet = pageSize*page;
+		}
+		return seriesMapper.findSeries(pageSize, offSet, sortOrder, sortField).stream()
 				.map(collection -> converter.convert(collection, SeriesDto.class)).collect(Collectors.toSet());
 	}
 

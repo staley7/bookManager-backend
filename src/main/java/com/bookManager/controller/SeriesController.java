@@ -37,9 +37,9 @@ public class SeriesController {
 	@CrossOrigin
 	@GetMapping(value = "/series", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public Resources<SeriesDto> getSeries(@RequestParam(required = false) Integer pageNumber,
-			@RequestParam(required = false) Integer pageSize) {
-		Set<SeriesDto> collections = seriesService.getSeries(pageNumber, pageSize);
-		return new Resources<>(seriesAssembler.toResources(collections), ControllerLinkBuilder.linkTo(ControllerLinkBuilder.methodOn(SeriesController.class).getSeries(pageNumber, pageSize)
+			@RequestParam(required = false) Integer pageSize, @RequestParam(required = false) String sortOrder, @RequestParam(required = false) String sortField) {
+		Set<SeriesDto> collections = seriesService.getSeries(pageNumber, pageSize, sortOrder, sortField);
+		return new Resources<>(seriesAssembler.toResources(collections), ControllerLinkBuilder.linkTo(ControllerLinkBuilder.methodOn(SeriesController.class).getSeries(pageNumber, pageSize, sortOrder, sortField)
 				).withSelfRel());
 	}
 

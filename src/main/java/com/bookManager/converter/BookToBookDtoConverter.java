@@ -7,10 +7,13 @@ import com.bookManager.dto.BookDto;
 
 /**
  * Converter to convert Book to an BookDto object
+ * 
  * @author Lance Staley
  *
  */
 public class BookToBookDtoConverter implements Converter<Book, BookDto> {
+
+	private AuthorToAuthorDtoConverter authorConverter = new AuthorToAuthorDtoConverter();
 
 	@Override
 	public BookDto convert(Book book) {
@@ -24,6 +27,9 @@ public class BookToBookDtoConverter implements Converter<Book, BookDto> {
 		dto.setCreatedBy(book.getCreatedBy());
 		dto.setUpdatedDate(book.getUpdateDate());
 		dto.setLastUpdatedBy(book.getLastUpdatedBy());
+		if (book.getAuthor() != null) {
+			dto.setAuthor(authorConverter.convert(book.getAuthor()));
+		}
 		return dto;
 	}
 

@@ -35,6 +35,17 @@ public interface SeriesMapper {
 	 public Set<Series> findAllSeries();
 	 
 	 /**
+	  * Returns the set of Series from given set of parameters.
+	  * @param limit
+	  * @param offSet
+	  * @param sortOrder
+	  * @param sortField
+	  * @return Set<Series>
+	  */
+	 public Set<Series> findSeries(Integer limit, Integer offSet, String sortOrder, String sortField);
+	 
+	 
+	 /**
 	  * Updates the given Series
 	  * @param series
 	  */

@@ -17,6 +17,11 @@
 			javaType="java.time.LocalDateTime" />
 		<result property="createdBy" column="created_by" />
 		<result property="lastUpdatedBy" column="updated_by" />
+		<association property="author" column="author_id" javaType="com.bookManager.dao.model.Author" >
+			<id property="authorId" column="author_id" />
+			<result property="firstName" column="first_name" />
+			<result property="lastName" column="last_name"  />
+		</association>
 	</resultMap>
 
 
@@ -28,6 +33,25 @@
 	<select id="findAllBooks" resultType="java.util.Set"
 		resultMap="BookResult">
 		SELECT book_id, title, description, rating from BOOKS
+	</select>
+
+	<select id="findBooks" resultType="java.util.Set" resultMap="BookResult">
+		SELECT book_id, title, description, BOOKS.rating, BOOKS.update_date, BOOKS.author_id, AUTHORS.first_name, AUTHORS.last_name from BOOKS 
+		LEFT JOIN AUTHORS 
+		ON BOOKS.author_id = AUTHORS.author_id
+ 		<if test="sortField != null">
+ 			ORDER BY #{sortField} 
+ 			<if test="sortOrder">
+ 				#{sortOrder}
+ 			</if>
+ 		</if>
+ 		<if test="limit != null">
+ 		 LIMIT
+ 		 	<if test="offSet != null">
+ 				#{offSet}, 
+ 		 	</if>
+ 		  #{limit}
+ 		</if>
 	</select>
 
 	<insert id="insertBook" parameterType="Book"
@@ -48,5 +72,9 @@
 		DELETE FROM BOOKS
 		WHERE book_id = #{bookId}
 	</delete>
+	
+	<select id="findBookCount">
+		SELECT count(book_id) FROM BOOKS
+	</select>
 
 </mapper>

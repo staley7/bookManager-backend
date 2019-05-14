@@ -25,7 +25,20 @@
 	</select>
  
  	<select id="findPagedAuthors" resultType="java.util.Set" resultMap="AuthorResult">
- 		SELECT author_id, first_name, last_name, rating from AUTHORS LIMIT #{offSet}, #{limit}
+ 		SELECT author_id, first_name, last_name, rating, update_date from AUTHORS
+ 		<if test="sortField != null">
+ 			ORDER BY #{sortField} 
+ 			<if test="sortOrder">
+ 				#{sortOrder}
+ 			</if>
+ 		</if>
+ 		<if test="limit != null">
+ 		 LIMIT
+ 		 	<if test="offSet != null">
+ 				#{offSet}, 
+ 		 	</if>
+ 		  #{limit}
+ 		</if>
  	</select>
  
  	<select id="findAuthorCount" resultType="int">

@@ -35,10 +35,10 @@ public class BookController {
 	
 	@CrossOrigin
 	@GetMapping(value =  "/books", produces = { MediaType.APPLICATION_JSON_VALUE })
-	public Resources<BookDto> getBooks(@RequestParam(required = false) Integer pageNumber, @RequestParam(required = false) Integer pageSize) {
+	public Resources<BookDto> getBooks(@RequestParam(required = false) Integer pageNumber, @RequestParam(required = false) Integer pageSize, @RequestParam(required = false) String sortOrder, @RequestParam(required = false) String sortField) {
 		LOGGER.debug("Get Books");
-		Set<BookDto> books = bookService.getBooks(pageNumber, pageSize);
-		return new Resources<>(bookAssembler.toResources(books), ControllerLinkBuilder.linkTo(ControllerLinkBuilder.methodOn(BookController.class).getBooks(pageNumber, pageSize)
+		Set<BookDto> books = bookService.getBooks(pageNumber, pageSize, sortOrder, sortField);
+		return new Resources<>(bookAssembler.toResources(books), ControllerLinkBuilder.linkTo(ControllerLinkBuilder.methodOn(BookController.class).getBooks(pageNumber, pageSize, sortOrder, sortField)
 				).withSelfRel());
 	} //TODO handle empty sets
 	

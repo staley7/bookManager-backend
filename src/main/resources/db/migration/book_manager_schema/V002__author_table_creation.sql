@@ -4,9 +4,9 @@ CREATE TABLE authors (
                 first_name VARCHAR(100) NOT NULL,
                 last_name VARCHAR(100) NOT NULL,
                 rating DOUBLE PRECISION,
-                create_Date DATE,
+                create_date DATE,
                 created_by VARCHAR(100),
-                update_Date DATE,
+                update_date DATE,
                 updated_by VARCHAR(100),
                 PRIMARY KEY (author_id)
 );

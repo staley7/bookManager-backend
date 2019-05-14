@@ -4,7 +4,6 @@ import java.util.Set;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.bookManager.dao.model.Author;
 import com.bookManager.dao.model.Book;
 
 /**
@@ -36,6 +35,16 @@ public interface BookMapper {
 	 public Set<Book> findAllBooks();
 	 
 	 /**
+	  * Returns a Set of Books with the given limit, offset, sortOrder, sortField
+	  * @param limit
+	  * @param offSet
+	  * @param sortOrder
+	  * @param sortField
+	  * @return Set<Book>
+	  */
+	 public Set<Book> findBooks(Integer limit, Integer offSet, String sortOrder, String sortField);
+	 
+	 /**
 	  * Updates the given Book
 	  * @param book
 	  */
@@ -46,4 +55,10 @@ public interface BookMapper {
 	  * @param bookId
 	  */
 	 public void deleteBook(Long bookId);
+	 
+	 /**
+	  * Returns the number of Books
+	  * @return int, the number of Books
+	  */
+	 public int findBookCount();
 }

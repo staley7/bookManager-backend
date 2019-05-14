@@ -15,9 +15,11 @@ public interface AuthorService {
 	 * Returns the given page of authors, based on a pageSize
 	 * @param page
 	 * @param pageSize
+	 * @param sortOrder, order to sort the results in. ASC or DESC.
+	 * @param sortField, field to sort the result by.
 	 * @return Set<Author>
 	 */
-	Set<AuthorDto> getAuthors(Integer page, Integer pageSize);
+	Set<AuthorDto> getAuthors(Integer page, Integer pageSize, String sortOrder, String sortField);
 	
 	/**
 	 * Returns the Author with the given id.

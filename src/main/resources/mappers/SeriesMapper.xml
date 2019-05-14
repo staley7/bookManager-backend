@@ -25,6 +25,23 @@
 		SELECT series_id, name, description, rating from SERIES
 	</select>
  
+ 	<select id="findSeries" resultType="java.util.Set" resultMap="SeriesResult">
+ 	SELECT series_id, name, rating, update_date from SERIES 
+ 		<if test="sortField != null">
+ 			ORDER BY #{sortField} 
+ 			<if test="sortOrder">
+ 				#{sortOrder}
+ 			</if>
+ 		</if>
+ 		<if test="limit != null">
+ 		 LIMIT
+ 		 	<if test="offSet != null">
+ 				#{offSet}, 
+ 		 	</if>
+ 		  #{limit}
+ 		</if>
+ 	</select>
+ 
  	<insert id="insertSeries" parameterType="Series" keyProperty="seriesId" keyColumn="series_id">
  		INSERT INTO SERIES(name, description, rating, author_id, create_date, update_date, created_by, updated_by)
  		VALUES(#{name}, #{description}, #{rating}, #{authorId}, #{createDate}, #{updateDate}, #{createdBy}, #{updatedBy})

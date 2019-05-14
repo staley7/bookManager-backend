@@ -2,6 +2,8 @@ package com.bookManager.service;
 
 import java.util.Set;
 
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.bookManager.dao.model.Book;
 import com.bookManager.dto.BookDto;
 
@@ -16,9 +18,11 @@ public interface BookService {
 	 * Returns the given page of books, based on a pageSize
 	 * @param page
 	 * @param pageSize
+	 * @param sortOrder
+	 * @param sortField
 	 * @return Set<Book>
 	 */
-	Set<BookDto> getBooks(Integer page, Integer pageSize);
+	Set<BookDto> getBooks(Integer page, Integer pageSize, String sortOrder, String sortField);
 	
 	/**
 	 * Updates the given Book
