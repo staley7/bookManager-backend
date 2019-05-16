@@ -63,4 +63,9 @@ public class CollectionServiceImpl implements CollectionService {
 		return dto;
 	}
 
+	@Override
+	public Integer getCollectionCount() {
+		return collectionMapper.findCollectionCount();
+	}
+
 }

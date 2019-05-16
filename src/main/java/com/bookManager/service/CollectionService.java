@@ -45,4 +45,10 @@ public interface CollectionService {
 	 * @return CollectionDto
 	 */
 	CollectionDto createCollection(CollectionDto collection);
+	
+	/**
+	 * Returns the  number of Collection entries.
+	 * @return Integer
+	 */
+	Integer getCollectionCount();
 }

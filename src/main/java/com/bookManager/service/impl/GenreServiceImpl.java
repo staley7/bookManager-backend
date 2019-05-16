@@ -63,5 +63,10 @@ public class GenreServiceImpl implements GenreService {
 		return dto;
 	}
 
+	@Override
+	public Integer getGenreCount() {
+		return genreMapper.findGenreCount();
+	}
+
 
 }

@@ -24,6 +24,10 @@
 		SELECT collection_id, name, description, rating from COLLECTION
 	</select>
  
+ 	<select id="findCollectionCount" resultType="int">
+ 		SELECT count(collection_id) from COLLECTION
+ 	</select>
+ 
  	<insert id="insertCollection" parameterType="Collection" keyProperty="collectionId" keyColumn="collection_id">
  		INSERT INTO COLLECTION(name, description, rating, create_date, update_date, created_by, updated_by)
  		VALUES(#{name}, #{description}, #{rating}, #{createDate}, #{updateDate}, #{createdBy}, #{updatedBy})

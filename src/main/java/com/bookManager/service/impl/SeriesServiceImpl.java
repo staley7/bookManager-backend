@@ -67,5 +67,10 @@ public class SeriesServiceImpl implements SeriesService {
 		return dto;
 	}
 
+	@Override
+	public Integer getSeriesCount() {
+		return seriesMapper.findSeriesCount();
+	}
+
 
 }

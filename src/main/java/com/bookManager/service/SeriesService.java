@@ -47,4 +47,10 @@ public interface SeriesService {
 	 * @return SeriesDto
 	 */
 	SeriesDto createSeries(SeriesDto series);
+	
+	/**
+	 * returns the number of Series.
+	 * @return Integer
+	 */
+	Integer getSeriesCount();
 }

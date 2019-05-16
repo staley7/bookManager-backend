@@ -56,4 +56,10 @@ public class BookController {
 		return bookAssembler.toResource(bookService.saveBook(book));
 	}
 	
+	@CrossOrigin
+	@GetMapping(value = "/books/count", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public Integer getBooksCount() {
+		return bookService.getBookCount();
+	}
+	
 }

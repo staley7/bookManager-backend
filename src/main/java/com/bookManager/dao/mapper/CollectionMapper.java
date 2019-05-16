@@ -45,4 +45,10 @@ public interface CollectionMapper {
 	  * @param collectionId
 	  */
 	 public void deleteCollection(Long collectionId);
+	 
+	 /**
+	  * Returns the number of Collection entries.
+	  * @return Integer
+	  */
+	 public Integer findCollectionCount();
 }

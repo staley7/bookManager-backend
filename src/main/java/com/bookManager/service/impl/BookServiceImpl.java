@@ -69,6 +69,11 @@ public class BookServiceImpl implements BookService {
 		bookMapper.insertBook(book);
 		return dto;
 	}
+
+	@Override
+	public Integer getBookCount() {
+		return this.bookMapper.findBookCount();
+	}
 	
 
 

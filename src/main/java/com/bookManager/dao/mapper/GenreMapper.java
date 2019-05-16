@@ -35,6 +35,12 @@ public interface GenreMapper {
 	 public Set<Genre> findAllGenres();
 	 
 	 /**
+	  * Returns the number of Genre.
+	  * @return Integer
+	  */
+	 public Integer findGenreCount();
+	 
+	 /**
 	  * Updates the given Genre
 	  * @param genre
 	  */

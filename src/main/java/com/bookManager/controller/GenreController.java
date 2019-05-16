@@ -56,4 +56,10 @@ public class GenreController {
 		return genreAssembler.toResource(genreService.getGenre(id));
 	}
 
+	@CrossOrigin
+	@GetMapping(value = "/genres/count", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public Integer getGenre() {
+		return genreService.getGenreCount();
+	}
+	
 }

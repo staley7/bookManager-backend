@@ -44,6 +44,12 @@ public interface SeriesMapper {
 	  */
 	 public Set<Series> findSeries(Integer limit, Integer offSet, String sortOrder, String sortField);
 	 
+	 /**
+	  * Returns the count of Series.
+	  * @return Integer
+	  */
+	 public Integer findSeriesCount();
+	 
 	 
 	 /**
 	  * Updates the given Series

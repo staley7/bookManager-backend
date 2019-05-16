@@ -77,4 +77,9 @@ public class AuthorServiceImpl implements AuthorService {
 		return dto;
 	}
 
+	@Override
+	public Integer getAutorsCount() {
+		return authorMapper.findAuthorCount();
+	}
+
 }

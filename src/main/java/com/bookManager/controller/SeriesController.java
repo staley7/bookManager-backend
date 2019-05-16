@@ -55,5 +55,11 @@ public class SeriesController {
 	public SeriesDto getSeries(@PathVariable Long id) {
 		return seriesAssembler.toResource(seriesService.getSeries(id));
 	}
+	
+	@CrossOrigin
+	@GetMapping(value = "/series/count", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public Integer getSeriesCount() {
+		return seriesService.getSeriesCount();
+	}
 
 }

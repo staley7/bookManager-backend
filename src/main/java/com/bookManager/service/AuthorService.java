@@ -55,4 +55,10 @@ public interface AuthorService {
 	 * @return boolean
 	 */
 	boolean deleteAuthor(Long authorId);
+	
+	/**
+	 * Returns the total number of Authors.
+	 * @return Integer, number of authors.
+	 */
+	Integer getAutorsCount();
 }

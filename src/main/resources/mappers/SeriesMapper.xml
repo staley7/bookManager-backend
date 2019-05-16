@@ -42,6 +42,11 @@
  		</if>
  	</select>
  
+ 	<select id="findSeriesCount" resultType="int">
+ 		SELECT count(series_id) from SERIES;
+ 	</select>
+ 
+ 
  	<insert id="insertSeries" parameterType="Series" keyProperty="seriesId" keyColumn="series_id">
  		INSERT INTO SERIES(name, description, rating, author_id, create_date, update_date, created_by, updated_by)
  		VALUES(#{name}, #{description}, #{rating}, #{authorId}, #{createDate}, #{updateDate}, #{createdBy}, #{updatedBy})

@@ -45,4 +45,10 @@ public interface GenreService {
 	 * @return GenreDto
 	 */
 	GenreDto createGenre(GenreDto genre);
+	
+	/**
+	 * Returns the number of Genre
+	 * @return Integer
+	 */
+	Integer getGenreCount();
 }

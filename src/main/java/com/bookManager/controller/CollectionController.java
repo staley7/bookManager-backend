@@ -55,5 +55,13 @@ public class CollectionController {
 	public CollectionDto getCollection(@PathVariable Long id) {
 		return collectionAssembler.toResource(collectionService.getCollection(id));
 	}
+	
+	@CrossOrigin
+	@GetMapping(value = "/collections/count", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public Integer getCollectionCount() {
+		return this.collectionService.getCollectionCount();
+	}
+	
+	
 
 }

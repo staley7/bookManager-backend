@@ -55,5 +55,11 @@ public class AuthorController {
 	public AuthorDto getAuthor(@PathVariable Long id) {
 		return authorAssembler.toResource(authorService.getAuthor(id));
 	}
+	
+	@CrossOrigin
+	@GetMapping(value = "/authors/count", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public Integer getAuthorsCount() {
+		return authorService.getAutorsCount();
+	}
 
 }

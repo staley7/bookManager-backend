@@ -73,7 +73,7 @@
 		WHERE book_id = #{bookId}
 	</delete>
 	
-	<select id="findBookCount">
+	<select id="findBookCount" resultType="int">
 		SELECT count(book_id) FROM BOOKS
 	</select>
 

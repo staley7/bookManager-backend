@@ -23,6 +23,10 @@
 		SELECT genre_id, name, description from GENRE
 	</select>
  
+ 	<select id="findGenreCount" resultType="int" >
+ 		SELECT count(genre_id) from GENRE
+ 	</select>
+ 
  	<insert id="insertGenre" parameterType="Genre" keyProperty="genreId" keyColumn="genre_id">
  		INSERT INTO GENRE(name, description, create_date, update_date, created_by, updated_by)
  		VALUES(#{name}, #{description}, #{createDate}, #{updatedDate}, #{createdBy}, #{updatedBy})

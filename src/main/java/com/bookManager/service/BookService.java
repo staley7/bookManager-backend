@@ -2,9 +2,6 @@ package com.bookManager.service;
 
 import java.util.Set;
 
-import org.springframework.web.bind.annotation.RequestParam;
-
-import com.bookManager.dao.model.Book;
 import com.bookManager.dto.BookDto;
 
 /**
@@ -50,4 +47,10 @@ public interface BookService {
 	 * @return BookDto
 	 */
 	BookDto createBook(BookDto book);
+	
+	/**
+	 * Returns the number of Books.
+	 * @return Integer, number of Books
+	 */
+	Integer getBookCount();
 }
