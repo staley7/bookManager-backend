@@ -34,7 +34,7 @@ public class AuthorController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(AuthorController.class);
 
-	@CrossOrigin
+	@CrossOrigin()
 	@GetMapping(value = "/authors", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public Resources<AuthorDto> getAuthors(@RequestParam(required = false) Integer pageNumber,
 			@RequestParam(required = false) Integer pageSize, @RequestParam(required = false) String sortOrder, @RequestParam(required = false) String sortField) {
