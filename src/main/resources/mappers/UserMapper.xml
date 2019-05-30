@@ -12,12 +12,18 @@
  		<result property="createDate" column="create_date" javaType="java.time.LocalDateTime" />
  		<result property="updateDate" column="update_date" javaType="java.time.LocalDateTime" />
  		<result property="createdBy" column="created_by"  />
- 		<result property="lastUpdatedBy" column="updated_by" />
+ 		<result property="updatedBy" column="updated_by" />
  	</resultMap>
  
  
 	<select id="findUserByUserName" resultMap="UserResult">
-		SELECT * from USER WHERE user_name = #{userName}
+		SELECT * from USERS WHERE user_name = #{userName}
 	</select>
+ 	
+	<insert id="insertUser" parameterType="User" keyProperty="userId" keyColumn="user_id">
+		INSERT INTO USERS(user_name, first_name, last_name, password, create_date, update_date, created_by, updated_by)
+		VALUES(#{userName}, #{firstName}, #{lastName}, #{password}, #{createDate}, #{updateDate}, #{createdBy}, #{updatedBy})
+	
+	</insert>
 	
  </mapper>

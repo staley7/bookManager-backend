@@ -13,4 +13,6 @@ import com.bookManager.dao.model.User;
 public interface UserMapper {
 
 	public User findUserByUserName(String userName);
+	
+	public void insertUser(User user);
 }

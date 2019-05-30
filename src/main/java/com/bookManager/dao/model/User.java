@@ -24,7 +24,7 @@ public class User implements Serializable {
 	
 	private LocalDateTime createDate;
 	
-	private LocalDateTime updatedDate;
+	private LocalDateTime updateDate;
 	
 	private String createdBy;
 	
@@ -78,12 +78,12 @@ public class User implements Serializable {
 		this.createDate = createDate;
 	}
 
-	public LocalDateTime getUpdatedDate() {
-		return updatedDate;
+	public LocalDateTime getUpdateDate() {
+		return updateDate;
 	}
 
-	public void setUpdatedDate(LocalDateTime updatedDate) {
-		this.updatedDate = updatedDate;
+	public void setUpdateDate(LocalDateTime updatedDate) {
+		this.updateDate = updatedDate;
 	}
 
 	public String getCreatedBy() {

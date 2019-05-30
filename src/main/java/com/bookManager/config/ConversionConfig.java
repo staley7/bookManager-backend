@@ -15,6 +15,7 @@ import com.bookManager.converter.GenreDtoToGenreConverter;
 import com.bookManager.converter.GenreToGenreDtoConverter;
 import com.bookManager.converter.SeriesDtoToSeriesConverter;
 import com.bookManager.converter.SeriesToSeriesDtoConverter;
+import com.bookManager.converter.UserDtoToUserConverter;
 
 /**
  * The Conversion Config class for the conversionService.
@@ -42,6 +43,7 @@ public class ConversionConfig {
         converterService.addConverter(new SeriesDtoToSeriesConverter());
         converterService.addConverter(new GenreToGenreDtoConverter());
         converterService.addConverter(new GenreDtoToGenreConverter());
+        converterService.addConverter(new UserDtoToUserConverter());
         return converterService;
     }
 
